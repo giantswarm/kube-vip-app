@@ -1,0 +1,15 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #50 from rptaylor/kvcp-update-chart...'
+      sha: a4591b2944de46b8206cdaa6a1a43dce4a09ac5f
+      tags:
+      - kube-vip-0.8.4
+    path: kube-vip
+  path: vendor
+- contents:
+  - directory: {}
+    path: .
+  path: helm
+kind: LockConfig

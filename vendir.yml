@@ -1,0 +1,19 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+  - path: vendor
+    contents:
+      - path: kube-vip
+        git:
+          depth: 1
+          url: https://github.com/kube-vip/helm-charts
+          ref: "kube-vip-0.8.4"
+        includePaths:
+          - charts/kube-vip/**/*
+  - path: helm
+    contents:
+    - path: .
+      directory:
+        path: vendor/kube-vip/charts/kube-vip
+      ignorePaths:
+          - kube-vip/templates/policyexception.yaml # TODO add files to ignore
