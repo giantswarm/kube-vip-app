@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
+  labels:
+    {{- include "kube-vip.labels" $ | nindent 4 }}
   name: {{ include "kube-vip.name" . }}
   namespace: {{ .Release.Namespace | default "kube-system" }}
 spec:

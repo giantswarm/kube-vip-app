@@ -26,3 +26,6 @@ icon: https://github.com/kube-vip/kube-vip/raw/main/kube-vip.png
 
 maintainers:
   - name: kube-vip
+
+annotations:
+  application.giantswarm.io/team: "rocket"

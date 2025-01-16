@@ -14,6 +14,6 @@ directories:
     contents:
     - path: .
       directory:
-        path: vendor/kube-vip/charts/kube-vip
+        path: vendor/kube-vip/charts/
       ignorePaths:
           - kube-vip/templates/policyexception.yaml # TODO add files to ignore
