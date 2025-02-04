@@ -13,6 +13,9 @@ spec:
     - disallow-capabilities-strict
     - disallow-host-namespaces
     - disallow-host-path
+    - disallow-privilege-escalation
+    - require-run-as-nonroot
+    - restrict-seccomp-strict
   targets:
     - kind: DaemonSet
       namespaces:
