@@ -1,5 +1,5 @@
 diff --git a/helm/kube-vip/values.yaml b/helm/kube-vip/values.yaml
-index d982438..b228249 100644
+index d982438..abf739b 100644
 --- a/helm/kube-vip/values.yaml
 +++ b/helm/kube-vip/values.yaml
 @@ -2,7 +2,7 @@
@@ -29,7 +29,43 @@ index d982438..b228249 100644
  fullnameOverride: ""
  
  serviceAccount:
-@@ -94,6 +94,9 @@ tolerations:
+@@ -67,8 +67,8 @@ serviceAccount:
+ 
+ podAnnotations: {}
+ 
+-podSecurityContext: {}
+-# fsGroup: 2000
++podSecurityContext:
++  fsGroup: 2000
+ 
+ securityContext:
+   capabilities:
+@@ -76,17 +76,13 @@ securityContext:
+       - NET_ADMIN
+       - NET_RAW
+ 
+-resources: {}
+-  # We usually recommend not to specify default resources and to leave this as a conscious
+-  # choice for the user. This also increases chances charts run on environments with little
+-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+-  # limits:
+-  #   cpu: 100m
+-  #   memory: 128Mi
+-  # requests:
+-  #   cpu: 100m
+-  #   memory: 128Mi
++resources:
++  limits:
++    cpu: 100m
++    memory: 128Mi
++  requests:
++    cpu: 100m
++    memory: 128Mi
+ 
+ nodeSelector: {}
+ 
+@@ -94,6 +90,9 @@ tolerations:
    - effect: NoSchedule
      key: node-role.kubernetes.io/control-plane
      operator: Exists

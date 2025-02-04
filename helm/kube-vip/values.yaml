@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  repository: ghcr.io/kube-vip/kube-vip
+  repository: gsoci.azurecr.io/giantswarm/kube-vip
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   # tag: "v0.7.0"
@@ -12,7 +12,7 @@ config:
 
 # Check https://kube-vip.io/docs/installation/flags/
 env:
-  vip_interface: ""
+  vip_interface: "ens192"
   vip_arp: "true"
   lb_enable: "true"
   lb_port: "6443"
@@ -53,7 +53,7 @@ extraLabels: {}
   # Specify extra labels to be added to DaemonSet (and therefore to Pods)
 
 imagePullSecrets: []
-nameOverride: ""
+nameOverride: kube-vip-svc-lb
 fullnameOverride: ""
 
 serviceAccount:
@@ -67,8 +67,8 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
-# fsGroup: 2000
+podSecurityContext:
+  fsGroup: 2000
 
 securityContext:
   capabilities:
@@ -76,23 +76,22 @@ securityContext:
       - NET_ADMIN
       - NET_RAW
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 nodeSelector: {}
 
 tolerations:
   - effect: NoSchedule
     key: node-role.kubernetes.io/control-plane
+    operator: Exists
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
     operator: Exists
 affinity: {}
   # nodeAffinity:
