@@ -1,0 +1,24 @@
+apiVersion: policy.giantswarm.io/v1alpha1
+kind: PolicyException
+metadata:
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+  name: {{ include "kube-vip.name" . }}
+  namespace: policy-exceptions
+  labels:
+    {{- include "kube-vip.labels" . | nindent 4 }}
+spec:
+  policies:
+    - disallow-capabilities
+    - disallow-capabilities-strict
+    - disallow-host-namespaces
+    - disallow-host-path
+    - disallow-privilege-escalation
+    - require-run-as-nonroot
+    - restrict-seccomp-strict
+  targets:
+    - kind: DaemonSet
+      namespaces:
+      - {{ .Release.Namespace }}
+      names:
+      - {{ include "kube-vip.name" . }}*
