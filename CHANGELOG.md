@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- changed: `app.giantswarm.io` label group was changed to `application.giantswarm.io`
+### Added
+
+- Initial release which tracks upstream version `0.8.4`.
 
 [Unreleased]: https://github.com/giantswarm/kube-vip-app/tree/main
