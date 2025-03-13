@@ -1,3 +1,4 @@
+{{- if .Capabilities.APIVersions.Has "policy.giantswarm.io/v1alpha1" -}}
 apiVersion: policy.giantswarm.io/v1alpha1
 kind: PolicyException
 metadata:
@@ -22,3 +23,4 @@ spec:
       - {{ .Release.Namespace }}
       names:
       - {{ include "kube-vip.name" . }}*
+{{- end -}}
