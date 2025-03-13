@@ -1,4 +1,4 @@
-apiVersion: policy.giantswarm.io/v1alpha1
+apiVersion: policy.giantswarm.io/v2
 kind: PolicyException
 metadata:
   annotations:
