@@ -1,9 +1,9 @@
 apiVersion: v2
 # upstream version
-appVersion: 0.8.4
+appVersion: APP_VERSION_PLACEHOLDER
 name: kube-vip
 # giantswarm chart version
-version: 0.2.0
+version: CHART_VERSION_PLACEHOLDER
 description: A Helm chart for kube-vip
 home: https://github.com/giantswarm/kube-vip-app
 icon: https://s.giantswarm.io/app-icons/kube-vip/1/light.png
@@ -12,7 +12,7 @@ annotations:
   io.giantswarm.application.managed: "true"
   io.giantswarm.application.team: "rocket"
   io.giantswarm.application.upstream-chart-url: "https://github.com/kube-vip/helm-charts/tree/main/charts/kube-vip"
-  io.giantswarm.application.upstream-chart-version: "0.8.4"
+  io.giantswarm.application.upstream-chart-version: "APP_VERSION_PLACEHOLDER"
 maintainers:
   - name: Team Rocket
     email: team-rocket@giantswarm.io
