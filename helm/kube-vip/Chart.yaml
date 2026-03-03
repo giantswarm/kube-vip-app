@@ -3,7 +3,7 @@ apiVersion: v2
 appVersion: 0.8.4
 name: kube-vip
 # giantswarm chart version
-version: 0.2.0
+version: 0.3.0
 description: A Helm chart for kube-vip
 home: https://github.com/giantswarm/kube-vip-app
 icon: https://s.giantswarm.io/app-icons/kube-vip/1/light.png
