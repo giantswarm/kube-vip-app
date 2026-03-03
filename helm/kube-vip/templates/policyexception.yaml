@@ -1,24 +1,69 @@
-apiVersion: policy.giantswarm.io/v1alpha1
+apiVersion: kyverno.io/v2
 kind: PolicyException
 metadata:
-  annotations:
-    "helm.sh/hook": "pre-install,pre-upgrade"
   name: {{ include "kube-vip.name" . }}
-  namespace: policy-exceptions
+  #
+  # We need to hard-code `kube-system` here as PolicyExceptions may only be created in the following namespaces:
+  #
+  # - `kube-system`
+  # - `giantswarm`
+  # - `policy-exceptions`
+  # 
+  # Since `policy-exceptions` gets created by Kyverno and we want to have this app deployed before,
+  # we choose `kube-system`, which is also the namespace this app gets deployed to by default.
+  #
+  namespace: kube-system
   labels:
     {{- include "kube-vip.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
 spec:
-  policies:
-    - disallow-capabilities
-    - disallow-capabilities-strict
-    - disallow-host-namespaces
-    - disallow-host-path
-    - disallow-privilege-escalation
-    - require-run-as-nonroot
-    - restrict-seccomp-strict
-  targets:
-    - kind: DaemonSet
-      namespaces:
-      - {{ .Release.Namespace }}
-      names:
-      - {{ include "kube-vip.name" . }}*
+  exceptions:
+  - policyName: disallow-capabilities
+    ruleNames:
+    - adding-capabilities
+    - autogen-adding-capabilities
+    - autogen-cronjob-adding-capabilities
+  - policyName: disallow-capabilities-strict
+    ruleNames:
+    - require-drop-all
+    - adding-capabilities-strict
+    - autogen-require-drop-all
+    - autogen-cronjob-require-drop-all
+    - autogen-adding-capabilities-strict
+    - autogen-cronjob-adding-capabilities-strict
+  - policyName: disallow-host-namespaces
+    ruleNames:
+    - host-namespaces
+    - autogen-host-namespaces
+    - autogen-cronjob-host-namespaces
+  - policyName: disallow-host-path
+    ruleNames:
+    - host-path
+    - autogen-host-path
+    - autogen-cronjob-host-path
+  - policyName: disallow-privilege-escalation
+    ruleNames:
+    - privilege-escalation
+    - autogen-privilege-escalation
+    - autogen-cronjob-privilege-escalation
+  - policyName: require-run-as-nonroot
+    ruleNames:
+    - run-as-non-root
+    - autogen-run-as-non-root
+    - autogen-cronjob-run-as-non-root
+  - policyName: restrict-seccomp-strict
+    ruleNames:
+    - check-seccomp-strict
+    - autogen-check-seccomp-strict
+    - autogen-cronjob-check-seccomp-strict
+  match:
+    any:
+    - resources:
+        kinds:
+        - DaemonSet
+        - Pod
+        namespaces:
+        - {{ .Release.Namespace }}
+        names:
+        - {{ include "kube-vip.name" . }}*
