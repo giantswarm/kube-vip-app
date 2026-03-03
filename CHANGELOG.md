@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Improve Chart.yaml metadata and management.
 - PolicyException: Use Kyverno-native API instead of Giant Swarm abstraction.
+- DaemonSet: Ensure leading `v` when defaulting to `.Chart.AppVersion`.
 
 ## [0.2.0] - 2025-02-25
 
