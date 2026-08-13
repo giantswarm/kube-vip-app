@@ -1,5 +1,4 @@
 diff --git a/helm/kube-vip/templates/daemonset.yaml b/helm/kube-vip/templates/daemonset.yaml
-index c60548a..cd5b148 100644
 --- a/helm/kube-vip/templates/daemonset.yaml
 +++ b/helm/kube-vip/templates/daemonset.yaml
 @@ -1,6 +1,8 @@
@@ -11,3 +10,12 @@ index c60548a..cd5b148 100644
    name: {{ include "kube-vip.name" . }}
    namespace: {{ .Release.Namespace | default "kube-system" }}
  spec:
+@@ -53,7 +55,7 @@
+         envFrom:
+         {{- toYaml . | nindent 8 }}
+       {{- end }}
+-        image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
++        image: {{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" (trimPrefix "v" .Chart.AppVersion)) }}
+         imagePullPolicy: {{ .Values.image.pullPolicy }}
+         name: kube-vip
+         resources:
