@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Move manual edit of daemonset manifest to a patch file.
 
+### Added
+
+- Run the sync script automatically on Renovate vendir branches and push the result for review.
+- Add a check which fails a pull request if the sync script was not run.
+
 ## [0.3.0] - 2026-03-03
 
 ### Changed
