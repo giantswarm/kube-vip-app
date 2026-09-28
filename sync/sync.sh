@@ -18,3 +18,4 @@ helm dependency update helm/kube-vip/
 ./sync/patches/chart/patch.sh
 ./sync/patches/helpers/patch.sh
 ./sync/patches/daemonset/patch.sh
+./sync/patches/chart-label/patch.sh
