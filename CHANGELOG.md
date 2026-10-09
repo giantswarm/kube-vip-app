@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add a check which fails a pull request if the sync script was not run.
 - Add shared helpers file to sync dir.
 
+### Changed
+
+- Disable Helm image reference verification in CI config.
+
 ## [0.3.0] - 2026-03-03
 
 ### Changed
