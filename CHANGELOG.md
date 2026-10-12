@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Disable Helm image reference verification in CI config.
+- Update architect to v10.13.0 (giantswarm/kube-vip-app#89)
 
 ## [0.3.0] - 2026-03-03
 
