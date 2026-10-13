@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Disable Helm image reference verification in CI config.
+- Revert 'Disable Helm image reference verification in CI config'.
+- Stop overriding appVersion in chart metadata.
 - Add Github action to create an issue in `giantswarm/giantswarm` for Team Rocket on vendir updates.
 - Update architect to v10.13.0 (giantswarm/kube-vip-app#89)
 - Update architect to v10.13.2 (giantswarm/kube-vip-app#90)
