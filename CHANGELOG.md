@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Github action to create an issue in `giantswarm/giantswarm` for Team Rocket on vendir updates.
 - Update architect to v10.13.0 (giantswarm/kube-vip-app#89)
 - Update architect to v10.13.2 (giantswarm/kube-vip-app#90)
+- Update architect to v10.13.4 (giantswarm/kube-vip-app#92)
 
 ## [0.3.0] - 2026-03-03
 
