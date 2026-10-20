@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.13.4 (giantswarm/kube-vip-app#92)
 - Use Linux tools to manipulate chart label instead of an inscrutable Perl command.
 - Update architect to v10.14.8 (giantswarm/kube-vip-app#97)
+- Update architect to v10.14.10 (giantswarm/kube-vip-app#102)
 
 ### Fixed
 
