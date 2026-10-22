@@ -7,11 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
-- Move manual edit of daemonset manifest to a patch file.
-
 ### Added
 
 - Run the sync script automatically on Renovate vendir branches and push the result for review.
@@ -28,6 +23,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.13.0 (giantswarm/kube-vip-app#89)
 - Update architect to v10.13.2 (giantswarm/kube-vip-app#90)
 - Update architect to v10.13.4 (giantswarm/kube-vip-app#92)
+- Use Linux tools to manipulate chart label instead of an inscrutable Perl command.
+- Update architect to v10.14.8 (giantswarm/kube-vip-app#97)
+- Update architect to v10.14.10 (giantswarm/kube-vip-app#102)
+
+### Fixed
+
+- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
+- Move manual edit of daemonset manifest to a patch file.
+- Fix changelog generation script.
 
 ## [0.3.0] - 2026-03-03
 
