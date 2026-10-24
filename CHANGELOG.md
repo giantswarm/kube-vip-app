@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update actions/create-github-app-token to v3.3.0 (giantswarm/kube-vip-app#107)
 - Update architect to v10.14.18 (giantswarm/kube-vip-app#108)
 - Update architect to v10.15.1 (giantswarm/kube-vip-app#109)
+- Update architect to v10.16.3 (giantswarm/kube-vip-app#110)
 
 ### Fixed
 
