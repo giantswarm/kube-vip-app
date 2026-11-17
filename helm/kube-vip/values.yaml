@@ -105,3 +105,9 @@ affinity: {}
   #         operator: Exists
 
 priorityClassName: ""
+
+kyvernoPolicyExceptions:
+  enabled: true
+  legacy:
+    # Render the kyverno.io/v2 PolicyException, which only applies to ClusterPolicies. Turn it off once the cluster runs the CEL policies.
+    enabled: true
