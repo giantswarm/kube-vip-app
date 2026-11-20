@@ -1,5 +1,5 @@
 diff --git a/helm/kube-vip/values.yaml b/helm/kube-vip/values.yaml
-index d982438..abf739b 100644
+index d982438..008a506 100644
 --- a/helm/kube-vip/values.yaml
 +++ b/helm/kube-vip/values.yaml
 @@ -2,7 +2,7 @@
@@ -75,3 +75,13 @@ index d982438..abf739b 100644
  affinity: {}
    # nodeAffinity:
    #   requiredDuringSchedulingIgnoredDuringExecution:
+@@ -106,3 +105,9 @@ affinity: {}
+   #         operator: Exists
+ 
+ priorityClassName: ""
++
++kyvernoPolicyExceptions:
++  enabled: true
++  legacy:
++    # Renders the kyverno.io/v2 PolicyException, which applies to ClusterPolicies only. Will be used as a global switch in a future release.
++    enabled: true
