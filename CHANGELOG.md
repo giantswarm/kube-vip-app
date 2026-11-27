@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.17.4 (giantswarm/kube-vip-app#122)
 - Update mikefarah/yq to v4.54.3 (giantswarm/kube-vip-app#120)
 - Update architect to v10.17.5 (giantswarm/kube-vip-app#130)
+- Update architect to v10.19.0 (giantswarm/kube-vip-app#136)
 
 ### Fixed
 
